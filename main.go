@@ -15,14 +15,17 @@
 package main
 
 import (
+	"fmt"
+	"os"
+
 	"github.com/apache/apisix-ingress-controller/cmd"
 )
 
 func main() {
 	root := cmd.NewAPISIXIngressControllerCommand()
-	root.Execute()
-	// if err := root.Execute(); err != nil {
-	// 	fmt.Fprintln(os.Stderr, err.Error())
-	// 	os.Exit(1)
-	// }
+	// root.Execute()
+	if err := root.Execute(); err != nil {
+		fmt.Fprintln(os.Stderr, err.Error())
+		os.Exit(1)
+	}
 }
